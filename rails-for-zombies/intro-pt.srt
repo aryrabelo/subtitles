@@ -1,0 +1,406 @@
+1
+00:00:00,000 --> 00:00:02,300
+Então você está provavelmente se perguntando,
+O que é Rails para Zumbis?
+
+2
+00:00:02,300 --> 00:00:04,680
+Bem, a resposta curta é que
+é um tutorial interativo
+
+3
+00:00:04,680 --> 00:00:06,920
+para ensinar o básico de desenvolvimento
+de aplicações web no
+
+4
+00:00:06,920 --> 00:00:08,790
+navegador usando Ruby on Rails.
+
+5
+00:00:08,790 --> 00:00:10,010
+Mas aqui vai a resposta longa.
+
+6
+00:00:10,010 --> 00:00:12,160
+No mundo de aprendizagem
+técnica, você tem livros e
+
+7
+00:00:12,160 --> 00:00:14,360
+você tem video aulas, nenhum
+dos quais tem qualquer
+
+8
+00:00:14,360 --> 00:00:15,290
+interatividade.
+
+9
+00:00:15,290 --> 00:00:17,120
+Mas peraí, esta é a
+geração Nintendo.
+
+10
+00:00:17,120 --> 00:00:19,170
+Me dê um maldito joystick.
+
+11
+00:00:19,170 --> 00:00:21,220
+Além disso, então existem os
+problemas de configuração.
+
+12
+00:00:21,220 --> 00:00:23,380
+Não importa quão fácil seja configurar 
+seu computador para codificar
+
+13
+00:00:23,380 --> 00:00:26,060
+rails, provavelmente você vai descobrir
+alguma maneira de estragar tudo
+
+14
+00:00:26,060 --> 00:00:27,910
+e pode nem mesmo ser
+sua culpa.
+
+15
+00:00:27,910 --> 00:00:29,900
+Quando você está mergulhando em
+algo novo, precisa ser
+
+16
+00:00:29,900 --> 00:00:31,700
+divertido e não te dar a sensação
+que você foi
+
+17
+00:00:31,700 --> 00:00:32,980
+jogado no fundo do poço.
+
+18
+00:00:32,980 --> 00:00:34,550
+Na hora que você chegar
+à água, você
+
+19
+00:00:34,550 --> 00:00:35,890
+deveria estar fazendo a reserva.
+
+20
+00:00:35,890 --> 00:00:37,520
+Ruby on Rails deveria
+ser todo sobre pôneis
+
+21
+00:00:37,520 --> 00:00:38,840
+e arco-íris, certo?
+
+22
+00:00:38,840 --> 00:00:41,440
+Então você deveria ao menos ter
+arco-íris coloridos flutuantes ou estar
+
+23
+00:00:41,440 --> 00:00:44,660
+armado com talvez algumas pistolas
+ou até mesmo uma espingarda.
+
+24
+00:00:44,660 --> 00:00:46,790
+Ah sim, uma espingarda.
+
+25
+00:00:46,790 --> 00:00:49,370
+Mas falando de espingardas, você
+deve estar se perguntando o que
+
+26
+00:00:49,370 --> 00:00:51,070
+isso tem a ver com zumbis?
+
+27
+00:00:51,070 --> 00:00:53,350
+Bem, é aí que a nossa aplicação
+de exemplo entra.
+
+28
+00:00:53,350 --> 00:00:56,070
+Você ve, Twitter é sempre um
+bom exemplo para iniciantes.
+
+29
+00:00:56,070 --> 00:00:58,510
+Entretanto, isso já tem sido feito
+vezes demais. Então nós precisamos
+
+30
+00:00:58,510 --> 00:00:59,810
+encontrar algo novo.
+
+31
+00:00:59,810 --> 00:01:01,170
+Recentemente eu fiquei sabendo
+sobre as zombie walks.
+
+32
+00:01:01,170 --> 00:01:03,700
+É onde as pessoas em cidades grandes
+se vestem como zumbis,
+
+33
+00:01:03,700 --> 00:01:06,140
+se encontram em um único lugar, e
+andar pelas ruas como
+
+34
+00:01:06,140 --> 00:01:06,960
+mortos vivos.
+
+35
+00:01:06,960 --> 00:01:09,350
+Na verdade acontece por todo
+o país, e em Seattle
+
+36
+00:01:09,350 --> 00:01:12,220
+eles tiveram mais de 4.000 zumbis
+caminhando pelo centro da cidade.
+
+37
+00:01:12,220 --> 00:01:14,750
+Mas novamente, o que isso tem
+a ver com Rails para Zumbis?
+
+38
+00:01:14,750 --> 00:01:16,620
+Bem, se você fizer essa zombie
+walk e encontrar alguns
+
+39
+00:01:16,620 --> 00:01:18,820
+cérebro deliciosos, você vai
+precisar uma forma de contar
+
+40
+00:01:18,820 --> 00:01:20,670
+a seus colegas zumbis sobre isso.
+
+41
+00:01:20,670 --> 00:01:22,410
+Deste modo, a aplicação que
+estaremos construindo
+
+42
+00:01:22,410 --> 00:01:25,920
+será Twitter para Zumbis.
+
+43
+00:01:25,920 --> 00:01:27,290
+Faz todo o sentido, certo?
+
+44
+00:01:27,290 --> 00:01:28,980
+Então como essa coisa de
+zumbi funciona?
+
+45
+00:01:28,980 --> 00:01:30,670
+Bem primeiro, se você não está
+familiarizado com a linguagem Ruby
+
+46
+00:01:30,670 --> 00:01:33,015
+vá até tryruby.org e siga o
+
+47
+00:01:33,015 --> 00:01:34,400
+tutorial de Ruby lá.
+
+48
+00:01:34,400 --> 00:01:36,660
+Então volte a 
+Railsforzombies.org e clique
+
+49
+00:01:36,660 --> 00:01:38,720
+no botão Start Course Now
+na página inicial.
+
+50
+00:01:38,720 --> 00:01:41,770
+Você será levado à primeira
+lição em video para o curso.
+
+51
+00:01:41,770 --> 00:01:43,860
+Você pode pular para um capítulo
+no topo se você
+
+52
+00:01:43,860 --> 00:01:44,690
+quiser pular.
+
+53
+00:01:44,690 --> 00:01:46,760
+E quando você estiver pronto, clique
+no grande botão verde
+
+54
+00:01:46,760 --> 00:01:48,970
+para começar os exercícios onde
+você terá que fazer algum código
+
+55
+00:01:48,970 --> 00:01:50,150
+para chegar ao nível dois.
+
+56
+00:01:50,150 --> 00:01:52,590
+Na interface de desafio,
+você irá ver o seu total de pontos,
+
+57
+00:01:52,590 --> 00:01:55,020
+os pontos que você pode ganhar
+com este desafio, e as
+
+58
+00:01:55,020 --> 00:01:56,240
+instruções do desafio.
+
+59
+00:01:56,240 --> 00:01:58,270
+Para resolver o desafio, você terá
+que escrever algum código usando
+
+60
+00:01:58,270 --> 00:02:00,440
+nosso editor de código
+no navegador aqui.
+
+61
+00:02:00,440 --> 00:02:01,430
+Se você não acertar,
+você irá
+
+62
+00:02:01,430 --> 00:02:02,670
+ver algumas mensagens de erro.
+
+63
+00:02:02,670 --> 00:02:04,710
+E se você estiver preso, você poderá
+olhar algumas das dicas para
+
+64
+00:02:04,710 --> 00:02:06,620
+te ajudarem a seguir em frente.
+
+65
+00:02:06,620 --> 00:02:08,220
+Assim que você digitar a
+resposta correta, você verá a
+
+66
+00:02:08,220 --> 00:02:10,289
+tela de parabéns onde
+você poderá continuar ao
+
+67
+00:02:10,289 --> 00:02:12,780
+próximo desafio ou tentar
+ganhar um crédito extra.
+
+68
+00:02:12,780 --> 00:02:14,550
+O crédito extra não é verificado,
+É somente uma
+
+69
+00:02:14,550 --> 00:02:16,780
+oportunidade de praticar
+sua codificação em rails.
+
+70
+00:02:16,780 --> 00:02:18,630
+Assim que você estiver pronto para
+seguir em frente, no lado esquerdo da tela
+
+71
+00:02:18,630 --> 00:02:20,015
+Você poderá pular para
+outros desafios.
+
+72
+00:02:20,015 --> 00:02:22,530
+Onde você assistirá a lição
+em vídeo, aprenderá os atalhos
+
+73
+00:02:22,530 --> 00:02:24,370
+da interface, ou baixará
+os slides da lição em video
+
+74
+00:02:24,370 --> 00:02:26,000
+para referência posterior.
+
+75
+00:02:26,000 --> 00:02:27,750
+Assim que você terminar Rails para
+Zumbis, você irá receber um
+
+76
+00:02:27,750 --> 00:02:30,810
+badge para o seu perfil público,
+destravar o video final.
+
+77
+00:02:30,810 --> 00:02:33,470
+E finalmente, você irá receber $5
+em dinheiro Code School que você
+
+78
+00:02:33,470 --> 00:02:36,300
+poderá usar para se inscrever na
+Code School e acessar Rails
+
+79
+00:02:36,300 --> 00:02:39,130
+para Zumbis 2, Teste de Rails para
+Zumbis, e Testando com
+
+80
+00:02:39,130 --> 00:02:41,460
+Rspec, junto com todos nossos outros
+cursos e video aulas da
+
+81
+00:02:41,460 --> 00:02:42,570
+Code TV.
+
+82
+00:02:42,570 --> 00:02:44,330
+Rails para Zumbis é graciosamente
+
+83
+00:02:44,330 --> 00:02:45,640
+patrocinado pela New Relic.
+
+84
+00:02:45,640 --> 00:02:47,685
+Fornecendo aos desenvolvedores Rails
+ferramentas que eles precisam para monitorar
+
+85
+00:02:47,685 --> 00:02:49,630
+a performance de sua aplicação.
+
+86
+00:02:49,630 --> 00:02:52,800
+Chega de conversa, é hora de aprender
+um pouco de Rails para Zumbis.
+
+87
+00:02:52,800 --> 00:02:55,333
