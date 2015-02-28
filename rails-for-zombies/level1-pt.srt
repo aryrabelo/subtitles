@@ -1,0 +1,991 @@
+1
+00:00:00,500 --> 00:00:03,302
+[CANTANDO] Deixe de lado seus cérebros
+e suas entranhas.
+
+2
+00:00:03,302 --> 00:00:06,266
+É hora de parar
+e aprender um pouco de Rails,
+
+3
+00:00:06,266 --> 00:00:09,230
+porque nós temos
+algo novo para aprender -
+
+4
+00:00:09,230 --> 00:00:12,385
+é Rails para Zumbis, pela Envy Labs.
+
+5
+00:00:15,370 --> 00:00:18,370
+Eu sou Gregg Pollack, e você está
+assistindo Rails para Zumbis.
+
+6
+00:00:18,370 --> 00:00:19,790
+Este é o Nível 1,
+onde nós estaremos
+
+7
+00:00:19,790 --> 00:00:23,530
+chegando
+"Profundamente no CRUD."
+
+8
+00:00:23,530 --> 00:00:26,175
+Se você não está familiarizado ainda com
+a linguagem de programação Ruby,
+
+9
+00:00:26,175 --> 00:00:27,550
+talvez você queira
+pausar o video
+
+10
+00:00:27,550 --> 00:00:29,819
+e ir para TryRuby.org.
+
+11
+00:00:29,819 --> 00:00:31,860
+Passe alguns minutos lá
+no tutorial se
+
+12
+00:00:31,860 --> 00:00:33,680
+familiarizando com a
+sintaxe do Ruby - você
+
+13
+00:00:33,680 --> 00:00:35,350
+não precisa terminar
+a coisa inteira -
+
+14
+00:00:35,350 --> 00:00:39,330
+e depois volte aqui
+e continue este tutorial.
+
+15
+00:00:39,330 --> 00:00:42,650
+Neste tutorial, nós iremos
+construir uma aplicação web
+
+16
+00:00:42,650 --> 00:00:45,040
+de alguma forma como
+o Twitter, exceto que
+
+17
+00:00:45,040 --> 00:00:47,356
+irá ser Twitter para zumbis.
+
+18
+00:00:50,170 --> 00:00:51,790
+Para iniciar a construir
+nossa aplicação web,
+
+19
+00:00:51,790 --> 00:00:53,620
+nós iremos começar
+no banco de dados
+
+20
+00:00:53,620 --> 00:00:57,570
+com uma tabela de 
+banco de dados chamada tweets.
+
+21
+00:00:57,570 --> 00:00:59,010
+Você poderá dizer que
+isso se parece com
+
+22
+00:00:59,010 --> 00:01:00,930
+uma planilha do Excel.
+
+23
+00:01:00,930 --> 00:01:08,250
+Nós temos quatro linhas e nós temos
+três colunas na parte superior.
+
+24
+00:01:08,250 --> 00:01:11,480
+Se nós formos dar nome a essas
+colunas, a primeira nós podemos
+
+25
+00:01:11,480 --> 00:01:17,090
+chamar id, a segunda nós
+podemos chamar status - este é
+
+26
+00:01:17,090 --> 00:01:20,420
+o nosso tweet - e a
+terceira, nós chamaremos zombie,
+
+27
+00:01:20,420 --> 00:01:23,280
+que significa o zumbi
+que postou aquele tweet.
+
+28
+00:01:23,280 --> 00:01:26,860
+O primeiro problema que nós precisamos
+resolver na nossa aplicação web
+
+29
+00:01:26,860 --> 00:01:32,760
+é como trazer o objeto de tweet
+com o id igual a 3
+
+30
+00:01:32,760 --> 00:01:37,610
+então talvez nós possamos mostrá-lo
+na página depois.
+
+31
+00:01:37,610 --> 00:01:39,240
+Antes de tentarmos
+resolver esse desafio,
+
+32
+00:01:39,240 --> 00:01:43,030
+nós precisamos ter certeza de que todos
+entendemos o que é um hash.
+
+33
+00:01:43,030 --> 00:01:45,400
+Você deve se lembrar
+disso do Try Ruby.
+
+34
+00:01:45,400 --> 00:01:48,840
+É basicamente múltiplas 
+chaves e valores
+
+35
+00:01:48,840 --> 00:01:51,950
+cercados por chaves.
+
+36
+00:01:51,950 --> 00:01:56,260
+Aqui você pode ver a linha número 3
+expressada como um hash.
+
+37
+00:01:56,260 --> 00:01:58,080
+Se tivéssemos apenas
+uma única chave e valor,
+
+38
+00:01:58,080 --> 00:02:00,290
+se pareceria com 
+algo assim.
+
+39
+00:02:00,290 --> 00:02:04,990
+E uma receita para hash você
+poderia dizer que se parece com algo assim.
+
+40
+00:02:04,990 --> 00:02:06,870
+E à medida que formos
+por este curso,
+
+41
+00:02:06,870 --> 00:02:09,970
+você irá ver diversas
+receitas difentes quando
+
+42
+00:02:09,970 --> 00:02:15,420
+nós quisermos te mostrar
+como a sintaxe se parece por baixo.
+
+43
+00:02:15,420 --> 00:02:19,060
+A anatomia de um hash
+tem chaves e valores.
+
+44
+00:02:19,060 --> 00:02:23,790
+Então id, status, e
+zombie são todos chaves,
+
+45
+00:02:23,790 --> 00:02:26,730
+e os valores
+aqui são 3, "I just
+
+46
+00:02:26,730 --> 00:02:29,080
+ate some delicious
+brains," e "Jim."
+
+47
+00:02:29,080 --> 00:02:30,800
+Os dois segundos são strings.
+
+48
+00:02:30,800 --> 00:02:33,440
+O primeiro é
+obviamente um integer.
+
+49
+00:02:33,440 --> 00:02:37,140
+E nós chamamos estas chaves
+de símbolos - símbolos do Ruby -
+
+50
+00:02:37,140 --> 00:02:41,430
+porque eles tem aqueles
+dois pontos na frente deles.
+
+51
+00:02:41,430 --> 00:02:45,340
+Então nós estamos guardando um novo hash
+dentro daquela variável b,
+
+52
+00:02:45,340 --> 00:02:48,490
+mas como nós lemos
+valores de um hash?
+
+53
+00:02:48,490 --> 00:02:50,800
+Nós podemos fazer isso
+simplesmente especificando
+
+54
+00:02:50,800 --> 00:02:54,170
+b e enviando a chave,
+status.
+
+55
+00:02:54,170 --> 00:02:57,540
+Isso retorna, "I just ate
+some delicious brains."
+
+56
+00:02:57,540 --> 00:03:00,680
+Aqui está como nós pegaríamos
+o zumbi retornando "Jim."
+
+57
+00:03:00,680 --> 00:03:02,650
+Nós poderíamos também
+coletar múltiplas chaves
+
+58
+00:03:02,650 --> 00:03:06,770
+e concatená-las juntas
+dentro de uma string obtendo "Jim said,
+
+59
+00:03:06,770 --> 00:03:09,900
+'I just ate some
+delicious brains.'"
+
+60
+00:03:09,900 --> 00:03:12,505
+Aqui está uma receita para ler
+valores de um hash.
+
+61
+00:03:16,270 --> 00:03:18,090
+De volta a nosso desafio
+zumbi onde
+
+62
+00:03:18,090 --> 00:03:21,770
+nós queremos retornar
+o tweet com o id igual a 3.
+
+63
+00:03:21,770 --> 00:03:24,820
+Nós meio que queremos os
+resultados de qualquer código
+
+64
+00:03:24,820 --> 00:03:28,760
+que estamos prestes a escrever
+para retornar algo como este hash,
+
+65
+00:03:28,760 --> 00:03:31,690
+para que possamos ler
+os valores dele.
+
+66
+00:03:31,690 --> 00:03:34,250
+E o código necessário para resolver
+este desafio se parece com
+
+67
+00:03:34,250 --> 00:03:36,895
+isso: t igual a tweet.find(3).
+
+68
+00:03:39,850 --> 00:03:42,080
+Isso irá retornar algo
+
+69
+00:03:42,080 --> 00:03:45,560
+que nós podemos então imprimir
+na tela.
+
+70
+00:03:45,560 --> 00:03:49,100
+Numa aplicação em Rails,
+quando usamos a palavra tweet
+
+71
+00:03:49,100 --> 00:03:54,100
+e é singular e 
+em caixa alta, ela
+
+72
+00:03:54,100 --> 00:03:57,670
+vai nos permitir
+acessar no banco de dados
+
+73
+00:03:57,670 --> 00:04:04,170
+a tabela em caixa baixa e 
+pluralizada, tweets.
+
+74
+00:04:04,170 --> 00:04:07,210
+Quando chamamos find(3),
+estamos chamando um método
+
+75
+00:04:07,210 --> 00:04:10,150
+no tweet que
+irá trazer
+
+76
+00:04:10,150 --> 00:04:14,790
+o tweet com o id de 3 e
+guardá-lo na variável t.
+
+77
+00:04:14,790 --> 00:04:20,360
+Então agora se fizermos puts t id,
+nós temos de volta o id de 3.
+
+78
+00:04:20,360 --> 00:04:24,210
+Se nós fizermos puts t status,
+nós temos de volta "I just ate some delicious
+
+79
+00:04:24,210 --> 00:04:26,770
+brains," e se fizermos
+puts t zombie,
+
+80
+00:04:26,770 --> 00:04:31,762
+temos de volta "Jim", como
+você deve esperar.
+
+81
+00:04:31,762 --> 00:04:34,320
+Quando estamos trazendo
+valores do banco de dados,
+
+82
+00:04:34,320 --> 00:04:35,890
+não usamos uma sintaxe de hash.
+
+83
+00:04:35,890 --> 00:04:38,480
+Nós usamos uma sintaxe de ponto.
+
+84
+00:04:38,480 --> 00:04:45,040
+Nós tipicamente apenas dizemos
+t.id, t.status, ou t.zombie
+
+85
+00:04:45,040 --> 00:04:47,270
+e ele retorna a mesma coisa.
+
+86
+00:04:47,270 --> 00:04:49,070
+Você vê aquele símbolo ali em cima?
+
+87
+00:04:49,070 --> 00:04:51,370
+Ele será nosso símbolo 
+neste tutorial
+
+88
+00:04:51,370 --> 00:04:54,820
+para uma sintaxe alternativa,
+e ele também
+
+89
+00:04:54,820 --> 00:04:58,770
+é o símbolo internacional do
+homem de borracha.
+
+90
+00:04:58,770 --> 00:05:00,970
+Eu acabei de inventar isso agora mesmo.
+
+91
+00:05:00,970 --> 00:05:02,950
+Parece que um estudate
+tem uma pergunta.
+
+92
+00:05:02,950 --> 00:05:07,020
+Bem, deveríamos usar a sintaxe
+de hash ou a sintaxe de ponto?
+
+93
+00:05:07,020 --> 00:05:08,890
+Bem, na maioria das aplicações
+em Rails, você irá
+
+94
+00:05:08,890 --> 00:05:13,530
+ver pessoas usando a sintaxe de ponto,
+então vamos fazer isso daqui
+
+95
+00:05:13,530 --> 00:05:15,650
+pra frente.
+
+96
+00:05:15,650 --> 00:05:18,370
+Digamos que temos uma tabela
+de armas (weapons) em nosso banco de dados
+
+97
+00:05:18,370 --> 00:05:20,520
+e queremos pegar
+a arma (weapon) de dentro
+
+98
+00:05:20,520 --> 00:05:23,920
+do banco de dados
+com o id de 1.
+
+99
+00:05:23,920 --> 00:05:26,130
+Bem, baseado no que nós
+sabemos até então,
+
+100
+00:05:26,130 --> 00:05:30,790
+podemos escrever w igual a
+weapon find(1).
+
+101
+00:05:30,790 --> 00:05:33,540
+Entenda que w é somente um
+nome de variável,
+
+102
+00:05:33,540 --> 00:05:36,370
+e poderíamos ter chamado
+a variável de qualquer coisa,
+
+103
+00:05:36,370 --> 00:05:38,610
+mas que iria dentro de nossa
+tabela de weapons
+
+104
+00:05:38,610 --> 00:05:40,460
+e trazer nossa arma
+que poderíamos depois
+
+105
+00:05:40,460 --> 00:05:43,904
+imprimir para a tela.
+
+106
+00:05:43,904 --> 00:05:45,570
+Você deve estar se perguntando
+porque este nível é
+
+107
+00:05:45,570 --> 00:05:47,300
+chamado "Profundamente no CRUD."
+
+108
+00:05:47,300 --> 00:05:49,940
+Bem, CRUD, caso
+você não esteja familiarizado,
+
+109
+00:05:49,940 --> 00:05:54,130
+quer dizer Create, Read,
+Update, e Delete (Criar, ler, 
+atualizar e deletar).
+
+110
+00:05:54,130 --> 00:05:55,500
+É algo sobre banco de dados.
+
+111
+00:05:55,500 --> 00:05:58,430
+Então nós iremos descobrir como
+fazer cada uma dessas coisas agora.
+
+112
+00:05:58,430 --> 00:06:00,690
+E, bem, nós já descobrimos
+como ler
+
+113
+00:06:00,690 --> 00:06:03,760
+Nós podemos simplesmente chamar tweet.find(3).
+
+114
+00:06:03,760 --> 00:06:06,150
+Como podemos criar
+um tweet então?
+
+115
+00:06:06,150 --> 00:06:09,720
+Para fazer isso, podemos dizer
+t igual a tweet.new.
+
+116
+00:06:09,720 --> 00:06:12,240
+Isso irá criar
+um novo tweet para nós.
+
+117
+00:06:12,240 --> 00:06:15,260
+Podemos setar alguns valores,
+como o status,
+
+118
+00:06:15,260 --> 00:06:18,060
+e depois ao chamar
+o método save no nosso tweet,
+
+119
+00:06:18,060 --> 00:06:19,760
+irá salvá-lo para o banco de dados.
+
+120
+00:06:19,760 --> 00:06:21,500
+Para atualizar o tweet,
+nós podemos primeiro
+
+121
+00:06:21,500 --> 00:06:26,680
+trazê-lo do banco de dados,
+depois atualizar um valor,
+
+122
+00:06:26,680 --> 00:06:29,510
+e depois salvá-lo, e o
+Rails vai automaticamente
+
+123
+00:06:29,510 --> 00:06:31,425
+atualizar nosso registro no banco de dados.
+
+124
+00:06:31,425 --> 00:06:35,060
+Para deletar um tweet, nós
+podemos encontrar um existente
+
+125
+00:06:35,060 --> 00:06:36,600
+e depois simplesmente chamar t.destroy.
+
+126
+00:06:39,310 --> 00:06:41,190
+Vamos através de todas
+as nossas instruções de CRUD
+
+127
+00:06:41,190 --> 00:06:44,490
+agora uma de cada vez começando
+com a criação de um zumbi.
+
+128
+00:06:44,490 --> 00:06:46,100
+Você deve notar aqui
+que nós não
+
+129
+00:06:46,100 --> 00:06:49,780
+temos que setar um novo id
+nesse novo tweet.
+
+130
+00:06:49,780 --> 00:06:53,441
+Isso é porque o Rails
+cuida disso para nós.
+
+131
+00:06:53,441 --> 00:06:55,690
+A receita aqui, que você
+poderia usar para outra tabelas,
+
+132
+00:06:55,690 --> 00:06:57,890
+se parece com algo assim.
+
+133
+00:06:57,890 --> 00:07:00,890
+Note que cada
+palavra no nome da tabela
+
+134
+00:07:00,890 --> 00:07:03,140
+irá ser capitalizada.
+
+135
+00:07:03,140 --> 00:07:06,540
+Existem duas sintaxes alternativas
+aqui que você deveria estar ciente.
+
+136
+00:07:06,540 --> 00:07:09,450
+A primeira é que podemos
+enviar um hash
+
+137
+00:07:09,450 --> 00:07:12,750
+dentro de um tweet.new com uma
+série de chaves e valores
+
+138
+00:07:12,750 --> 00:07:15,500
+que irão ser setados no
+nosso novo tweet.
+
+139
+00:07:15,500 --> 00:07:18,020
+Depois nós podemos simplesmente salvá-lo.
+
+140
+00:07:18,020 --> 00:07:20,080
+Aqui está a receita para isso.
+
+141
+00:07:20,080 --> 00:07:24,560
+Em último lugar, se chamarmos tweet.create
+e enviarmos um hash,
+
+142
+00:07:24,560 --> 00:07:27,030
+ele irá criar um
+novo tweet para nós
+
+143
+00:07:27,030 --> 00:07:29,640
+e automaticamente salvá-lo
+no banco de dados.
+
+144
+00:07:29,640 --> 00:07:31,160
+e aqui está a receita para isso.
+
+145
+00:07:33,710 --> 00:07:35,630
+Em seguida, vamos continuar para a leitura.
+
+146
+00:07:35,630 --> 00:07:39,050
+E nós vimos como chamar o
+método find, enviando um id,
+
+147
+00:07:39,050 --> 00:07:42,250
+e que isso retorna um único
+tweet com o id de 2.
+
+148
+00:07:42,250 --> 00:07:46,880
+Entretanto, nós podemos também
+enviar diversos parâmetros especificando
+
+149
+00:07:46,880 --> 00:07:50,390
+ids múltiplos e isso irá
+retornar um array de tweets
+
+150
+00:07:50,390 --> 00:07:51,865
+com esses ids.
+
+151
+00:07:51,865 --> 00:07:54,970
+Nós podemos chamar Tweet.first.
+
+152
+00:07:54,970 --> 00:07:57,020
+Isso irá retornar
+o primeiro tweet.
+
+153
+00:07:57,020 --> 00:08:00,630
+Nós podemos também chamar
+Tweet.last para retornar o último tweet
+
+154
+00:08:00,630 --> 00:08:02,950
+e finalmente, nós
+podemos chamar Tweet.all,
+
+155
+00:08:02,950 --> 00:08:07,630
+que irá retornar um array
+com todos os tweets.
+
+156
+00:08:07,630 --> 00:08:11,690
+Mais algumas funções de leitura,
+começando com count.
+
+157
+00:08:11,690 --> 00:08:15,500
+Count na realidade irá executar
+uma query de count no nosso banco de dados
+
+158
+00:08:15,500 --> 00:08:18,520
+e retornar para nós o
+número total de tweets.
+
+159
+00:08:18,520 --> 00:08:21,320
+Nós podemos também especificar
+a ordem dos tweets
+
+160
+00:08:21,320 --> 00:08:25,285
+que queremos retornados - neste caso,
+ordená-los pelo nome do zumbi.
+
+161
+00:08:25,285 --> 00:08:26,660
+Nós podemos limitar o número
+de tweets
+
+162
+00:08:26,660 --> 00:08:29,190
+que iremos retornar - neste caso, 10.
+
+163
+00:08:29,190 --> 00:08:31,920
+Podemos também retornar
+todos os tweets onde
+
+164
+00:08:31,920 --> 00:08:36,500
+o nome do zumbi é igual a ash.
+
+165
+00:08:36,500 --> 00:08:39,179
+Aqui é onde o Rails começa
+a ficar realmente poderoso.
+
+166
+00:08:39,179 --> 00:08:42,090
+Você vê que muito desses métodos
+podem ser encadeados juntos
+
+167
+00:08:42,090 --> 00:08:44,380
+para criar uma query complexa.
+
+168
+00:08:44,380 --> 00:08:46,210
+Deixa eu te mostrar o que eu quero dizer.
+
+169
+00:08:46,210 --> 00:08:50,130
+Aqui temos uma query que
+usa encadeamento de métodos.
+
+170
+00:08:50,130 --> 00:08:51,910
+Vamos olhar mais de perto.
+
+171
+00:08:51,910 --> 00:08:55,330
+Isso irá retornar apenas
+tweets do zumbi com o
+
+172
+00:08:55,330 --> 00:08:58,180
+nome Ash, e irá ser ordenado
+
+173
+00:08:58,180 --> 00:09:01,150
+pelo status do tweet,
+e apenas
+
+174
+00:09:01,150 --> 00:09:05,490
+irá retornar os 10 
+primeiros tweets.
+
+175
+00:09:05,490 --> 00:09:08,070
+Como vimos no slide anterior,
+quando chamamos o tweet
+
+176
+00:09:08,070 --> 00:09:12,560
+onde o zumbi é Ash, irá
+retornar um array.
+
+177
+00:09:12,560 --> 00:09:15,330
+Mesmo quando há somente um
+tweet do zumbi Ash,
+
+178
+00:09:15,330 --> 00:09:18,150
+irá retornar um array.
+
+179
+00:09:18,150 --> 00:09:22,680
+Mas nós podemos querer somente
+o primeiro tweet do zumbi Ash
+
+180
+00:09:22,680 --> 00:09:29,360
+em que nesse caso podemos chamar .first
+apenas nos dando o primeiro.
+
+181
+00:09:29,360 --> 00:09:31,920
+Aqui está o código que precisamos
+para atualizar um zumbi,
+
+182
+00:09:31,920 --> 00:09:33,670
+e aqui está a receita
+que vai junto com ele
+
+183
+00:09:33,670 --> 00:09:36,380
+- não deveria
+ser surpreendente.
+
+184
+00:09:36,380 --> 00:09:38,390
+Existe uma sintaxe alternativa
+aqui, entretanto.
+
+185
+00:09:38,390 --> 00:09:41,850
+Nós podemos setar múltiplos
+atributos neste tweet
+
+186
+00:09:41,850 --> 00:09:46,870
+simplesmente dizendo attributes
+igual e enviando um hash.
+
+187
+00:09:46,870 --> 00:09:49,800
+Aqui está a receita para isso.
+
+188
+00:09:49,800 --> 00:09:53,580
+Nós podemos simplificar mais isso
+ao usar o método update, que
+
+189
+00:09:53,580 --> 00:09:56,640
+nos permite enviar um
+hash de atributos
+
+190
+00:09:56,640 --> 00:10:00,590
+que queremos atualizar,
+e esse código automaticamente
+
+191
+00:10:00,590 --> 00:10:02,750
+salva esses valores
+para o banco de dados.
+
+192
+00:10:02,750 --> 00:10:07,130
+Aqui está a receita para isso -
+bem simples.
+
+193
+00:10:07,130 --> 00:10:09,620
+Aqui está nosso código para
+deletar um zumbi e a receita que
+
+194
+00:10:09,620 --> 00:10:11,500
+vai junto com ele.
+
+195
+00:10:11,500 --> 00:10:14,160
+Como você deve suspeitar, nós
+podemos fazer tudo isso em uma linha,
+
+196
+00:10:14,160 --> 00:10:18,580
+encontrando e destruindo o
+zumbi-- bem simples.
+
+197
+00:10:18,580 --> 00:10:20,579
+Se nós alguma vez quisermos
+deletar todos os tweets,
+
+198
+00:10:20,579 --> 00:10:22,120
+nós podemos também chamar
+tweet.destroy_all.
+
+199
+00:10:27,302 --> 00:10:29,730
+Agora, se você é um desenvolvedor
+de software por profissão,
+
+200
+00:10:29,730 --> 00:10:33,370
+você provavelmente está suspeitando
+que eu estou deixando alguns detalhes de fora
+
+201
+00:10:33,370 --> 00:10:36,170
+sobre como todas essas coisas
+são costuradas juntas,
+
+202
+00:10:36,170 --> 00:10:37,300
+mas não se preocupe.
+
+203
+00:10:37,300 --> 00:10:40,040
+Nós iremos entrar nessa parte
+no próximo nível.
+
+204
+00:10:40,040 --> 00:10:42,250
+Nesse meio tempo, vá
+fazer alguns desafios
+
+205
+00:10:42,250 --> 00:10:44,520
+e se familiarizar
+com essa sintaxe.
+
+206
+00:10:44,520 --> 00:10:46,940
+E eu irei te ver
+no próximo nível.
